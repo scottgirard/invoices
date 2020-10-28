@@ -8,11 +8,19 @@ def products():
 
     return products
 
-def test_CanCalculateTotalImpurePrice(products):
+@pytest.fixture()
+def invoice():
     invoice = Invoice()
-    invoice.totalImpurePrice(products)
+    return invoice
 
-def test_CanCalculateTotalImpurePrice(products):
-    invoice = Invoice()
+def test_CanCalculateTotalImpurePrice(invoice, products):
     invoice.totalImpurePrice(products)
     assert invoice.totalImpurePrice(products) == 75
+
+def test_CanCalculatetotalDiscount(invoice, products):
+    invoice.totalDiscount(products)
+    assert invoice.totalDiscount(products) == 5.62
+
+def test_CanCalculateTotalPurePrice(invoice, products):
+    invoice.totalImpurePrice(products)
+    assert invoice.totalPurePrice(products) == 69.38
