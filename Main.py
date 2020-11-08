@@ -15,4 +15,7 @@ while True:
         break
 total_amount = Invoice().totalPurePrice(products)
 
+print("Product\t\tQuantity\tUnit Price\tDiscount")
+print("-------\t\t--------\t----------\t--------")
+print(Invoice().displayProducts(products))
 print("Your total pure price is: ", total_amount)
